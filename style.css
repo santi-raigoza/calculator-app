@@ -72,6 +72,11 @@ body {
     align-items: center;
     font-size: 100%;
     border: 1px solid black;
+    cursor: pointer;
+}
+
+.button:hover {
+    opacity: 50%;
 }
 
 .symbol {
