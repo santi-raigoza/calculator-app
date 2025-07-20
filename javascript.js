@@ -1,6 +1,8 @@
 let hasJustCalculated = false;
 let pressedOperator = false;
-let storedInput = [];
+let prevValue = 0;
+let currValue = 0;
+let currOperator = "";
 
 const button = document.querySelector(".main-buttons-container");
 const display = document.getElementById("display");
@@ -29,17 +31,27 @@ function getButton(e) {
                     console.log("Unhandled button:", value);
             }
         } else {
-            editDisplay(value);
+            editDisplay(e);
         }
     }
 }
 
-function editDisplay(pressedButton) {
-    if (pressedOperator) {
-        storedInput.push(Number(display.innerText));
+function editDisplay(e) {
+    const value = e.target.innerText;
+    // pressed operator should only be flipped once the user presses another number
+    if (e.target.classList.contains("operator")) {
+        if (currOperator && pressedOperator) {
+            // here should operate after a operator is pressed
+
+        } else {
+            
+            currOperator = value;
+            console.log(currOperator);
+        }
     } else {
-        display.innerText += pressedButton;
+        display.innerText += value;
     }
+
 }
 
 function subtract(a, b) {
@@ -67,8 +79,7 @@ function equal() {
 }
 
 function allClear() {
-    display.innerText = 0;
-    storedInput.length = 0;
+    display.innerText = "";
 }
 
 function del() {
