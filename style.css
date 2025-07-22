@@ -79,6 +79,10 @@ body {
     opacity: 50%;
 }
 
+.button-click {
+    opacity: 50%;
+}
+
 .symbol {
     background-color: var(--symbol-background-color);
 }
